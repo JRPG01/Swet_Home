@@ -1,17 +1,20 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import React from "react";
+import { StatusBar } from 'expo-status-bar';
+import { View, Text, Image, StyleSheet } from "react-native";
 import { BlurView } from "expo-blur";
 
 const url = "https://mujeres.lifeway.com/wp-content/uploads/2022/09/Misionera-en-el-vecindario-300x204.jpg";
 
 export default function LoginScreen() {
     return (
-        <View style={style.screen} className="flex-1 bg-sky-400">
-            <Image source={{ uri: url }} style={[style.screen, StyleSheet.absoluteFillObject]} />
+        <View style={style.screen}>
+            <Image source={{ uri: url }} style={[style.screen, StyleSheet.absoluteFillObject]}/>
             <BlurView intensity={90} style={style.screen}>
                 <View style={style.formulario}>
-                    <Text className="bg-sky-400">Hola</Text>
+                    <Text>Hola</Text>
                 </View>
             </BlurView>
+            <StatusBar style="auto" />
         </View>
         
     );
