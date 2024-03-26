@@ -1,13 +1,15 @@
 import { useNavigation } from "@react-navigation/native";
-import { View, Text, StyleSheet, Button } from "react-native";
+import { View, Text, StyleSheet, Button, Pressable} from "react-native";
 
 export default function HomeScreen () {
     const navigation = useNavigation();
     return(
         <View style = {style.screen}>
             <Text>Pantalla Home</Text>
-            <View>
-                <Button onPress={()=>navigation.navigate('Login')} style={style.boton}>Login</Button>
+            <View style={style.screen}>
+                <Pressable onPress={()=>navigation.navigate('Login')} style={style.boton}>
+                    <Text>Login</Text>
+                </Pressable>
             </View>
         </View>
     );
@@ -20,7 +22,11 @@ const style = StyleSheet.create({
     },
 
     boton:{
+        justifyContent: "center",
+        alignItems: "center",
+        margin: 50,
         width: "100%",
-        height: "2%"
+        height: "100%",
+        backgroundColor: "rgba(255, 0, 0, 1)"
     }
 });
