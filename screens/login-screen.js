@@ -2,17 +2,24 @@ import React from "react";
 import { StatusBar } from 'expo-status-bar';
 import { View, Text, Image, StyleSheet, TextInput, TouchableOpacity } from "react-native";
 import { BlurView } from "expo-blur";
+import { useNavigation } from "@react-navigation/native";
 
 const fondo = "../resources/fondo_Login.jpg";
-const Logo = "";
+const regresar = "../resources/botonRegresar.png";
 
 export default function LoginScreen() {
+    const navigation = useNavigation();
     return (
         <View style={style.screen}>
             <Image source={{ uri: fondo }} style={[style.screen, StyleSheet.absoluteFillObject]}/>
             <BlurView intensity={70} style={style.screen}>
                 <View style={style.formulario}>
                     <View style={style.titulo}>
+                        <View style={{width:"100%", height: 50, alignItems: "flex-start"}}>
+                            <TouchableOpacity onPress={()=>navigation.navigate('Home')}>
+                                <Image source={{uri: regresar}} style={style.regresar} />
+                            </TouchableOpacity>
+                        </View>
                         <Text style={style.inicio}>Inicia Sesión</Text>
                         <Text>O registrate si no tienes una cuenta</Text>
                     </View>
@@ -55,6 +62,11 @@ const style = StyleSheet.create({
         resizeMode: "cover",
     },
 
+    regresar:{
+        width:50,
+        height: 50
+    },
+
     formulario: {
         width: "30%",
         height: "80%",
@@ -80,7 +92,8 @@ const style = StyleSheet.create({
         justifyContent: "center",
         width: "80%",
         height: "20%",
-        margin: 16,
+        marginVertical: 16,
+        marginHorizontal: 5
     },
 
     inicio:{
