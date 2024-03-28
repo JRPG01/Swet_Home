@@ -68,11 +68,11 @@ const style = StyleSheet.create({
     },
 
     formulario: {
-        width: "30%",
+        width: 450,
         height: "80%",
         backgroundColor: "rgba(255,255,255,0.5)",
         borderColor: "#fff",
-        borderWidth: 2,
+        borderWidth: 0,
         borderRadius: 10,
         padding: 1,
         alignItems: "center",

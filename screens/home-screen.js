@@ -4,9 +4,12 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput, ScrollView 
 import { BlurView } from "expo-blur";
 import ElementsList from "../componets/elements-list";
 
-const imglogo = "";
+const imglogo = "../resources/logo-SweetHome.png";
 const imgfondo = "../resources/fondo_HomeScreen.jpg";
 const imgBuscar = "../resources/botonBuscar.png";
+const imgFacebook = "../resources/facebook-icon.png";
+const imgX = "../resources/x-icon.png";
+const imgYoutube = "../resources/youtube-icon.png";
 
 export default function HomeScreen() {
     const navigation = useNavigation();
@@ -16,14 +19,18 @@ export default function HomeScreen() {
             <BlurView intensity={30} style={style.fondo}>
 
                 <View style={style.header}>
-                    <Image source={{ uri: imglogo }} />
-                    <TouchableOpacity onPress={() => navigation.navigate('Login')} style={style.boton}>
-                        <Text style={style.texto}>Inicia sesión</Text>
+                    <TouchableOpacity style={{ width: "85%", height: "100%" }} onPress={() => navigation.navigate('Home')}>
+                        <Image source={{ uri: imglogo }} style={style.logo} />
                     </TouchableOpacity>
-                    <Text style={style.texto} selectable={false}>o</Text>
-                    <TouchableOpacity onPress={() => navigation.navigate('Register')} style={style.boton}>
-                        <Text style={style.texto}>Registrate</Text>
-                    </TouchableOpacity>
+                    <View style={{ width: "15%", height: "100%", justifyContent: "center", flexDirection: "row" }}>
+                        <TouchableOpacity onPress={() => navigation.navigate('Login')} style={style.boton}>
+                            <Text style={style.texto}>Inicia sesión</Text>
+                        </TouchableOpacity>
+                        <Text style={style.texto} selectable={false}>o</Text>
+                        <TouchableOpacity onPress={() => navigation.navigate('Register')} style={style.boton}>
+                            <Text style={style.texto}>Registrate</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
 
                 <ScrollView style={{ width: "100%", margin: 0, padding: 0, border: 0 }}>
@@ -41,7 +48,16 @@ export default function HomeScreen() {
                 </ScrollView>
 
                 <View style={style.pie}>
-
+                    <Text style={style.texto} selectable={false}>Sweet Home, inc.© 2024</Text>
+                    <TouchableOpacity style={{height:"100%", width:40, alignItems:"center", justifyContent:"center"}}>
+                        <Image source={{ uri: imgFacebook }} style={style.socialWeb} />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{height:"100%", width:40, alignItems:"center", justifyContent:"center"}}>
+                        <Image source={{ uri: imgX }} style={style.socialWeb} />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{height:80, width:40, alignItems:"center", justifyContent:"center"}}>
+                        <Image source={{ uri: imgYoutube }} style={style.socialWeb} />
+                    </TouchableOpacity>
                 </View>
             </BlurView>
         </View>
@@ -52,8 +68,19 @@ const style = StyleSheet.create({
     screen: {
         flex: 1
     },
-    fondo: {
+
+    logo: {
         justifyContent: "flex-start",
+        alignItems: "center",
+        width: "10%",
+        height: "80%",
+        marginVertical: 8,
+        marginHorizontal: 15,
+        resizeMode: "center",
+    },
+
+    fondo: {
+        justifyContent: "center",
         alignItems: "center",
         height: "100%",
         width: "100%",
@@ -68,7 +95,7 @@ const style = StyleSheet.create({
         left: 0,
         right: 0,
         flexDirection: "row",
-        justifyContent: "flex-end"
+        justifyContent: "flex-start"
     },
 
     busqueda: {
@@ -102,6 +129,13 @@ const style = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "row",
+    },
+
+    socialWeb: {
+        height: "50%",
+        width: "100%",
+        resizeMode: "center",
+
     },
 
     boton: {
@@ -138,6 +172,7 @@ const style = StyleSheet.create({
     },
 
     botonBuscar: {
+        backgroundColor: "#000",
         marginHorizontal: 5,
         marginVertical: 10,
         width: 40,
