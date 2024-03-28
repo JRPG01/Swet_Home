@@ -1,72 +1,156 @@
 import React from "react";
-import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { View, Text, StyleSheet, Image, Pressable} from "react-native";
-import { FlatList } from "react-native-gesture-handler";
+import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput, ScrollView } from "react-native";
+import { BlurView } from "expo-blur";
+import ElementsList from "../componets/elements-list";
 
-const logo = "";
-const fondo = "../resources/fondo_HomeScreen";
+const imglogo = "";
+const imgfondo = "../resources/fondo_HomeScreen.jpg";
+const imgBuscar = "../resources/botonBuscar.png";
 
-export default function HomeScreen () {
-    const [logiado, isLogiado] = useState(false);
-
+export default function HomeScreen() {
     const navigation = useNavigation();
-    const [iniciar, setiniciar] = useState(false);
-    const [registrar, setRegistrar] = useState(false);
+    return (
+        <View style={style.screen}>
+            <Image source={{ uri: imgfondo }} style={[style.fondo, StyleSheet.absoluteFillObject]} />
+            <BlurView intensity={30} style={style.fondo}>
 
-    const inicioIN = () => setiniciar(true);
-    const inicioOUT = () => setiniciar(false);
-    const registrarIN = () => setRegistrar(true);
-    const registrarOUT = () => setRegistrar(false);
+                <View style={style.header}>
+                    <Image source={{ uri: imglogo }} />
+                    <TouchableOpacity onPress={() => navigation.navigate('Login')} style={style.boton}>
+                        <Text style={style.texto}>Inicia sesión</Text>
+                    </TouchableOpacity>
+                    <Text style={style.texto} selectable={false}>o</Text>
+                    <TouchableOpacity onPress={() => navigation.navigate('Register')} style={style.boton}>
+                        <Text style={style.texto}>Registrate</Text>
+                    </TouchableOpacity>
+                </View>
 
-    return(
-        <View style = {style.screen}>
-            <View style={{width: "100%", height:100, backgroundColor: "#4f6f32", position: "absolute", top:0, left:0, right:0, flexDirection: "row", justifyContent:"flex-end"}}>
-                
-                <Image source={{uri: logo}} />
+                <ScrollView style={{ width: "100%", margin: 0, padding: 0, border: 0 }}>
+                    <View style={style.busqueda}>
+                        <TextInput style={style.textoBusqueda} placeholder="¿Que deseas buscar?" />
+                        <TouchableOpacity>
+                            <Image source={{ uri: imgBuscar }} style={style.botonBuscar} />
+                        </TouchableOpacity>
+                    </View>
 
-                <Pressable onPress={()=>navigation.navigate('Login')} style={style.boton} onPressIn={inicioIN} onPressOut={inicioOUT}>
-                    <Text style={iniciar ? style.textoSeleccionado : style.texto }>Inicia sesión</Text>
-                </Pressable>
-                <Text style={style.texto}>o</Text>
-                <Pressable onPress={()=>navigation.navigate('Register')} style={style.boton} onPressIn={registrarIN} onPressOut={registrarOUT}>
-                    <Text style={registrar ? style.textoSeleccionado : style.texto}>Registrate</Text>
-                </Pressable>
-            </View>
-            
-            <FlatList>
-                <Image source={{uri: fondo}} style={[style.screen, StyleSheet.absoluteFillObject]}/>
-            </FlatList>
+
+                    <View style={style.elementos}>
+                        <ElementsList />
+                    </View>
+                </ScrollView>
+
+                <View style={style.pie}>
+
+                </View>
+            </BlurView>
         </View>
     );
 }
 
 const style = StyleSheet.create({
-    screen:{
-        justifyContent: "center",
+    screen: {
+        flex: 1
+    },
+    fondo: {
+        justifyContent: "flex-start",
         alignItems: "center",
+        height: "100%",
+        width: "100%",
+        resizeMode: "stretch",
     },
 
-    boton:{
+    header: {
+        width: "100%",
+        height: 80,
+        backgroundColor: "#4f6f32",
+        top: 0,
+        left: 0,
+        right: 0,
+        flexDirection: "row",
+        justifyContent: "flex-end"
+    },
+
+    busqueda: {
+        width: "100%",
+        height: 200,
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        top: 80,
+        left: 0,
+        right: 0
+    },
+
+    elementos: {
+        position: "absolute",
+        width: "100%",
+        backgroundColor: "rgba(249, 244, 217, 0.8)",
+        borderRadius: 10,
+        top: 280,
+        left: 0,
+        right: 0,
+    },
+
+    pie: {
+        width: "100%",
+        height: 50,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        backgroundColor: "#000",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "row",
+    },
+
+    boton: {
         height: "100%",
         position: "relative",
     },
 
-    texto:{
-        height: 100,
+    texto: {
+        height: 80,
         display: "flex",
-        alignItems:"center",
+        alignItems: "center",
         justifyContent: "center",
         paddingHorizontal: 10,
         color: "white"
     },
 
-    textoSeleccionado:{
-        height: 100,
-        display: "flex",
-        alignItems:"center",
-        justifyContent: "center",
-        paddingHorizontal: 10,
-        color: "cyan"
+    textoBusqueda: {
+        width: "50%",
+        height: 40,
+        borderColor: "#fff",
+        borderRadius: 10,
+        padding: 10,
+        marginVertical: 10,
+        backgroundColor: "#ffffff90",
+        fontSize: 16,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 0,
+        },
+        shadowOpacity: 0.80,
+        shadowRadius: 5,
+        elevation: 5,
+    },
+
+    botonBuscar: {
+        marginHorizontal: 5,
+        marginVertical: 10,
+        width: 40,
+        height: 40,
+        resizeMode: "cover",
+        borderRadius: 10,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 0,
+        },
+        shadowOpacity: 0.80,
+        shadowRadius: 5,
+        elevation: 5,
     }
 });

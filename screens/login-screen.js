@@ -20,17 +20,17 @@ export default function LoginScreen() {
                                 <Image source={{uri: regresar}} style={style.regresar} />
                             </TouchableOpacity>
                         </View>
-                        <Text style={style.inicio}>Inicia Sesión</Text>
-                        <Text>O registrate si no tienes una cuenta</Text>
+                        <Text style={style.inicio} selectable={false}>Inicia Sesión</Text>
+                        <Text selectable={false}>O registrate si no tienes una cuenta</Text>
                     </View>
                     <View style={{margin: 40}}>
                         <View style={{marginTop: 10}}>
-                            <Text style={style.label}>Email</Text>
-                            <TextInput style={style.campos} placeholder="Escribe tu correo aquí"></TextInput>
+                            <Text style={style.label} selectable={false}>Email</Text>
+                            <TextInput style={style.campos} placeholder="Escribe tu correo aquí"/>
                         </View>
                         <View style={{marginTop: 10}}>
-                            <Text style={style.label}>Contraseña</Text>
-                            <TextInput style={style.campos} placeholder="Escribe tu contraseña aquí" secureTextEntry={true}></TextInput>
+                            <Text style={style.label} selectable={false}>Contraseña</Text>
+                            <TextInput style={style.campos} placeholder="Escribe tu contraseña aquí" secureTextEntry={true}/>
                             <TouchableOpacity>
                                 <Text style={{color: "red", fontWeight: "bold"}}>Olvide la contraseña</Text>
                             </TouchableOpacity>
