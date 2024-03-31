@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput, ScrollView } from "react-native";
 import { BlurView } from "expo-blur";
 import ElementsList from "../componets/elements-list";
+import { useAsyncStorage } from "@react-native-async-storage/async-storage";
 
 const imglogo = "../resources/logo-SweetHome.png";
 const imgfondo = "../resources/fondo_HomeScreen.jpg";
@@ -10,26 +11,58 @@ const imgBuscar = "../resources/botonBuscar.png";
 const imgFacebook = "../resources/facebook-icon.png";
 const imgX = "../resources/x-icon.png";
 const imgYoutube = "../resources/youtube-icon.png";
+const imgProfile = "../resources/profile-icon.png";
+const imgSaved = "../resources/saved-icon.png";
 
-export default function HomeScreen() {
+export default function BasePage() {
     const navigation = useNavigation();
+
+    //Saber si hay sesión activa
+    const [sesion, setSesion] = useState("sesion");
+    const { getItem, setItem } = useAsyncStorage('@isLogin');
+
+    const readSesion = async () => {
+        const item = await getItem();
+        setSesion(item);
+    }
+    const writeSesion = async (value) => {
+        await setItem(value);
+        setSesion(value);
+    }
+
+    //Se usa useEffect para cuando se ingrese por primera vez a la web, cierra la sesión (cuando se el navigate para ir a home, este efecto no se aplica)
+    useEffect(() => { writeSesion("false"); }, []);
+
     return (
         <View style={style.screen}>
             <Image source={{ uri: imgfondo }} style={[style.fondo, StyleSheet.absoluteFillObject]} />
             <BlurView intensity={30} style={style.fondo}>
 
                 <View style={style.header}>
-                    <TouchableOpacity style={{ width: "85%", height: "100%" }} onPress={() => navigation.navigate('Home')}>
+                    <TouchableOpacity style={{ width: "85%", height: "70%", justifyContent: "center"}} onPress={() => navigation.navigate('Home')}>
                         <Image source={{ uri: imglogo }} style={style.logo} />
                     </TouchableOpacity>
-                    <View style={{ width: "15%", height: "100%", justifyContent: "center", flexDirection: "row" }}>
-                        <TouchableOpacity onPress={() => navigation.navigate('Login')} style={style.boton}>
-                            <Text style={style.texto}>Inicia sesión</Text>
-                        </TouchableOpacity>
-                        <Text style={style.texto} selectable={false}>o</Text>
-                        <TouchableOpacity onPress={() => navigation.navigate('Register')} style={style.boton}>
-                            <Text style={style.texto}>Registrate</Text>
-                        </TouchableOpacity>
+                    <View style={{ width: "15%", height: "70%", justifyContent: "flex-end", alignItems: "center", flexDirection: "row" }}>
+                        {sesion == "true" ?
+                            <>
+                                <TouchableOpacity onPress={() => navigation.navigate('Login')} style={style.boton}>
+                                    <Text style={style.texto}>Inicia sesión</Text>
+                                </TouchableOpacity>
+                                <Text style={style.texto} selectable={false}>o</Text>
+                                <TouchableOpacity onPress={() => navigation.navigate('Register')} style={style.boton}>
+                                    <Text style={style.texto}>Registrate</Text>
+                                </TouchableOpacity>
+                            </>
+                            :
+                            <>
+                                <TouchableOpacity onPress={() => navigation.navigate('Guardado')} style={[{ width: "20%",marginRight: "0%", borderRadius: 10, justifyContent: "center", alignItems: "center"}, style.boton]}>
+                                    <Image source={{ uri: imgSaved }} style={style.botonesHeader} />
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={() => navigation.navigate('Perfil')} style={[{ width: "20%", marginHorizontal: "10%", borderRadius: 10, justifyContent: "center", alignItems: "center"}, style.boton]}>
+                                    <Image source={{ uri: imgProfile }} style={style.botonesHeader} />
+                                </TouchableOpacity>
+                            </>
+                        }
                     </View>
                 </View>
 
@@ -49,13 +82,13 @@ export default function HomeScreen() {
 
                 <View style={style.pie}>
                     <Text style={style.texto} selectable={false}>Sweet Home, inc.© 2024</Text>
-                    <TouchableOpacity style={{height:"100%", width:40, alignItems:"center", justifyContent:"center"}}>
+                    <TouchableOpacity style={{ height: "100%", width: 40, alignItems: "center", justifyContent: "center" }}>
                         <Image source={{ uri: imgFacebook }} style={style.socialWeb} />
                     </TouchableOpacity>
-                    <TouchableOpacity style={{height:"100%", width:40, alignItems:"center", justifyContent:"center"}}>
+                    <TouchableOpacity style={{ height: "100%", width: 40, alignItems: "center", justifyContent: "center" }}>
                         <Image source={{ uri: imgX }} style={style.socialWeb} />
                     </TouchableOpacity>
-                    <TouchableOpacity style={{height:80, width:40, alignItems:"center", justifyContent:"center"}}>
+                    <TouchableOpacity style={{ height: 80, width: 40, alignItems: "center", justifyContent: "center"}}>
                         <Image source={{ uri: imgYoutube }} style={style.socialWeb} />
                     </TouchableOpacity>
                 </View>
@@ -73,9 +106,7 @@ const style = StyleSheet.create({
         justifyContent: "flex-start",
         alignItems: "center",
         width: "10%",
-        height: "80%",
-        marginVertical: 8,
-        marginHorizontal: 15,
+        height: "100%",
         resizeMode: "center",
     },
 
@@ -95,7 +126,19 @@ const style = StyleSheet.create({
         left: 0,
         right: 0,
         flexDirection: "row",
-        justifyContent: "flex-start"
+        justifyContent: "flex-start",
+        alignItems: "center"
+    },
+
+    botonesHeader: {
+        width: "100%",
+        height: "80%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        paddingHorizontal: 10,
+        color: "white",
+        resizeMode: "center"
     },
 
     busqueda: {

@@ -3,44 +3,52 @@ import { StatusBar } from 'expo-status-bar';
 import { View, Text, Image, StyleSheet, TextInput, TouchableOpacity } from "react-native";
 import { BlurView } from "expo-blur";
 import { useNavigation } from "@react-navigation/native";
+import { useAsyncStorage } from "@react-native-async-storage/async-storage";
 
 const fondo = "../resources/fondo_Login.jpg";
 const regresar = "../resources/botonRegresar.png";
 
 export default function LoginScreen() {
     const navigation = useNavigation();
+    const { setItem } = useAsyncStorage('@isLogin');
+
+    const writeLogin = async (value) => {
+        await setItem(value);
+    }
+
+
     return (
         <View style={style.screen}>
-            <Image source={{ uri: fondo }} style={[style.screen, StyleSheet.absoluteFillObject]}/>
+            <Image source={{ uri: fondo }} style={[style.screen, StyleSheet.absoluteFillObject]} />
             <BlurView intensity={70} style={style.screen}>
                 <View style={style.formulario}>
                     <View style={style.titulo}>
-                        <View style={{width:"100%", height: 50, alignItems: "flex-start"}}>
-                            <TouchableOpacity onPress={()=>navigation.navigate('Home')}>
-                                <Image source={{uri: regresar}} style={style.regresar} />
+                        <View style={{ width: "100%", height: 50, alignItems: "flex-start" }}>
+                            <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+                                <Image source={{ uri: regresar }} style={style.regresar} />
                             </TouchableOpacity>
                         </View>
                         <Text style={style.inicio} selectable={false}>Inicia Sesión</Text>
                         <Text selectable={false}>O registrate si no tienes una cuenta</Text>
                     </View>
-                    <View style={{margin: 40}}>
-                        <View style={{marginTop: 10}}>
+                    <View style={{ margin: 40 }}>
+                        <View style={{ marginTop: 10 }}>
                             <Text style={style.label} selectable={false}>Email</Text>
-                            <TextInput style={style.campos} placeholder="Escribe tu correo aquí"/>
+                            <TextInput style={style.campos} placeholder="Escribe tu correo aquí" />
                         </View>
-                        <View style={{marginTop: 10}}>
+                        <View style={{ marginTop: 10 }}>
                             <Text style={style.label} selectable={false}>Contraseña</Text>
-                            <TextInput style={style.campos} placeholder="Escribe tu contraseña aquí" secureTextEntry={true}/>
+                            <TextInput style={style.campos} placeholder="Escribe tu contraseña aquí" secureTextEntry={true} />
                             <TouchableOpacity>
-                                <Text style={{color: "red", fontWeight: "bold"}}>Olvide la contraseña</Text>
+                                <Text style={{ color: "red", fontWeight: "bold" }}>Olvide la contraseña</Text>
                             </TouchableOpacity>
                         </View>
-                        <View style={{marginTop: 60}}>
-                            <TouchableOpacity style={style.boton}>
-                                <Text style={{fontSize: 19, fontWeight: '400', color: 'white',}}>Iniciar Sesión</Text>
+                        <View style={{ marginTop: 60 }}>
+                            <TouchableOpacity style={style.boton} onPressIn={() => writeLogin("false")} onPressOut={() => navigation.navigate("Home")}>
+                                <Text style={{ fontSize: 19, fontWeight: '400', color: 'white', }}>Iniciar Sesión</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={style.botonRegistrar}>
-                                <Text style={{fontSize: 19, fontWeight: '400', color: 'white'}}>Registrarse</Text>
+                                <Text style={{ fontSize: 19, fontWeight: '400', color: 'white' }}>Registrarse</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -48,7 +56,6 @@ export default function LoginScreen() {
             </BlurView>
             <StatusBar style="auto" />
         </View>
-        
     );
 }
 
@@ -62,8 +69,8 @@ const style = StyleSheet.create({
         resizeMode: "cover",
     },
 
-    regresar:{
-        width:50,
+    regresar: {
+        width: 50,
         height: 50
     },
 
@@ -96,7 +103,7 @@ const style = StyleSheet.create({
         marginHorizontal: 5
     },
 
-    inicio:{
+    inicio: {
         fontSize: 40,
         fontWeight: "bold",
     },

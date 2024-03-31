@@ -1,3 +1,4 @@
+import React from "react";
 import { TouchableOpacity, Text, Image, StyleSheet } from "react-native";
 
 export default function ElementsItems({id, image ,title, price ,description}){

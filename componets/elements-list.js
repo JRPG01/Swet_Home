@@ -1,3 +1,4 @@
+import React from "react";
 import { View, FlatList, RefreshControl } from "react-native";
 import { EJEMPLO } from "../data/datos-ejemplos";
 import ElementsItems from "./elements-items";
