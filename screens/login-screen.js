@@ -44,7 +44,7 @@ export default function LoginScreen() {
                             </TouchableOpacity>
                         </View>
                         <View style={{ marginTop: 60 }}>
-                            <TouchableOpacity style={style.boton} onPressIn={() => writeLogin("false")} onPressOut={() => navigation.navigate("Home")}>
+                            <TouchableOpacity style={style.boton} onPressIn={() => writeLogin("true")} onPressOut={() => navigation.navigate("Home")}>
                                 <Text style={{ fontSize: 19, fontWeight: '400', color: 'white', }}>Iniciar Sesión</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={style.botonRegistrar}>

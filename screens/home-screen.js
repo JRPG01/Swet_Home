@@ -14,7 +14,7 @@ const imgYoutube = "../resources/youtube-icon.png";
 const imgProfile = "../resources/profile-icon.png";
 const imgSaved = "../resources/saved-icon.png";
 
-export default function BasePage() {
+export default function HomeScreen() {
     const navigation = useNavigation();
 
     //Saber si hay sesión activa
@@ -31,7 +31,7 @@ export default function BasePage() {
     }
 
     //Se usa useEffect para cuando se ingrese por primera vez a la web, cierra la sesión (cuando se el navigate para ir a home, este efecto no se aplica)
-    useEffect(() => { writeSesion("false"); }, []);
+    useEffect(() => { writeSesion("true"); }, []);
 
     return (
         <View style={style.screen}>
@@ -39,11 +39,11 @@ export default function BasePage() {
             <BlurView intensity={30} style={style.fondo}>
 
                 <View style={style.header}>
-                    <TouchableOpacity style={{ width: "85%", height: "70%", justifyContent: "center"}} onPress={() => navigation.navigate('Home')}>
+                    <TouchableOpacity style={{ width: "85%", height: "70%", justifyContent: "center" }} onPress={() => navigation.navigate('Home')}>
                         <Image source={{ uri: imglogo }} style={style.logo} />
                     </TouchableOpacity>
                     <View style={{ width: "15%", height: "70%", justifyContent: "flex-end", alignItems: "center", flexDirection: "row" }}>
-                        {sesion == "true" ?
+                        {sesion == "false" ?
                             <>
                                 <TouchableOpacity onPress={() => navigation.navigate('Login')} style={style.boton}>
                                     <Text style={style.texto}>Inicia sesión</Text>
@@ -55,10 +55,10 @@ export default function BasePage() {
                             </>
                             :
                             <>
-                                <TouchableOpacity onPress={() => navigation.navigate('Guardado')} style={[{ width: "20%",marginRight: "0%", borderRadius: 10, justifyContent: "center", alignItems: "center"}, style.boton]}>
+                                <TouchableOpacity onPress={() => navigation.navigate('Guardado')} style={[{ width: "20%", marginRight: "0%", borderRadius: 10, justifyContent: "center", alignItems: "center" }, style.boton]}>
                                     <Image source={{ uri: imgSaved }} style={style.botonesHeader} />
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={() => navigation.navigate('Perfil')} style={[{ width: "20%", marginHorizontal: "10%", borderRadius: 10, justifyContent: "center", alignItems: "center"}, style.boton]}>
+                                <TouchableOpacity onPress={() => navigation.openDrawer()} style={[{ width: "20%", marginHorizontal: "10%", borderRadius: 10, justifyContent: "center", alignItems: "center" }, style.boton]}>
                                     <Image source={{ uri: imgProfile }} style={style.botonesHeader} />
                                 </TouchableOpacity>
                             </>
@@ -88,7 +88,7 @@ export default function BasePage() {
                     <TouchableOpacity style={{ height: "100%", width: 40, alignItems: "center", justifyContent: "center" }}>
                         <Image source={{ uri: imgX }} style={style.socialWeb} />
                     </TouchableOpacity>
-                    <TouchableOpacity style={{ height: 80, width: 40, alignItems: "center", justifyContent: "center"}}>
+                    <TouchableOpacity style={{ height: 80, width: 40, alignItems: "center", justifyContent: "center" }}>
                         <Image source={{ uri: imgYoutube }} style={style.socialWeb} />
                     </TouchableOpacity>
                 </View>
