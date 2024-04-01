@@ -1,37 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput, ScrollView } from "react-native";
-import { useAsyncStorage } from "@react-native-async-storage/async-storage";
 import { BlurView } from "expo-blur";
-import ElementsList from "../componets/home-screen/elements-list";
+import ElementsList from "../componets/saved-screen/elements-list";
 
 const imglogo = "../resources/logo-SweetHome.png";
 const imgfondo = "../resources/fondo_HomeScreen.jpg";
-const imgBuscar = "../resources/botonBuscar.png";
 const imgFacebook = "../resources/facebook-icon.png";
 const imgX = "../resources/x-icon.png";
 const imgYoutube = "../resources/youtube-icon.png";
 const imgProfile = "../resources/profile-icon.png";
-const imgSaved = "../resources/saved-icon.png";
 
-export default function HomeScreen() {
+export default function savedScreen() {
     const navigation = useNavigation();
-
-    //Saber si hay sesión activa
-    const [sesion, setSesion] = useState("sesion");
-    const { getItem, setItem } = useAsyncStorage('@isLogin');
-
-    const readSesion = async () => {
-        const item = await getItem();
-        setSesion(item);
-    }
-    const writeSesion = async (value) => {
-        await setItem(value);
-        setSesion(value);
-    }
-
-    //Se usa useEffect para cuando se ingrese por primera vez a la web, cierra la sesión (cuando se el navigate para ir a home, este efecto no se aplica)
-    useEffect(() => { writeSesion("true"); }, []);
 
     return (
         <View style={style.screen}>
@@ -45,38 +26,13 @@ export default function HomeScreen() {
                         </TouchableOpacity>
                     </View>
                     <View style={{ width: "15%", height: "70%", justifyContent: "flex-end", alignItems: "center", flexDirection: "row" }}>
-                        {sesion == "false" ?
-                            <>
-                                <TouchableOpacity onPress={() => navigation.navigate('Login')} style={style.boton}>
-                                    <Text style={style.texto}>Inicia sesión</Text>
-                                </TouchableOpacity>
-                                <Text style={style.texto} selectable={false}>o</Text>
-                                <TouchableOpacity onPress={() => navigation.navigate('Register')} style={style.boton}>
-                                    <Text style={style.texto}>Registrate</Text>
-                                </TouchableOpacity>
-                            </>
-                            :
-                            <>
-                                <TouchableOpacity onPress={() => navigation.navigate('Saved')} style={[{ width: "20%", marginRight: "0%", borderRadius: 10, justifyContent: "center", alignItems: "center" }, style.boton]}>
-                                    <Image source={{ uri: imgSaved }} style={style.botonesHeader} />
-                                </TouchableOpacity>
-                                <TouchableOpacity onPress={() => navigation.openDrawer()} style={[{ width: "20%", marginHorizontal: "10%", borderRadius: 10, justifyContent: "center", alignItems: "center" }, style.boton]}>
-                                    <Image source={{ uri: imgProfile }} style={style.botonesHeader} />
-                                </TouchableOpacity>
-                            </>
-                        }
+                        <TouchableOpacity onPress={() => navigation.openDrawer()} style={[{ width: "20%", marginHorizontal: "10%", borderRadius: 10, justifyContent: "center", alignItems: "center" }, style.boton]}>
+                            <Image source={{ uri: imgProfile }} style={style.botonesHeader} />
+                        </TouchableOpacity>
                     </View>
                 </View>
 
                 <ScrollView style={{ width: "100%", margin: 0, padding: 0, border: 0 }}>
-                    <View style={style.busqueda}>
-                        <TextInput style={style.textoBusqueda} placeholder="¿Que deseas buscar?" />
-                        <TouchableOpacity>
-                            <Image source={{ uri: imgBuscar }} style={style.botonBuscar} />
-                        </TouchableOpacity>
-                    </View>
-
-
                     <View style={style.elementos}>
                         <ElementsList />
                     </View>
@@ -158,7 +114,7 @@ const style = StyleSheet.create({
         width: "100%",
         backgroundColor: "rgba(249, 244, 217, 0.8)",
         borderRadius: 10,
-        top: 280,
+        top: 0,
         left: 0,
         right: 0,
     },

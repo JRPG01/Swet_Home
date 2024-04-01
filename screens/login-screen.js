@@ -1,9 +1,9 @@
 import React from "react";
 import { StatusBar } from 'expo-status-bar';
 import { View, Text, Image, StyleSheet, TextInput, TouchableOpacity } from "react-native";
-import { BlurView } from "expo-blur";
 import { useNavigation } from "@react-navigation/native";
 import { useAsyncStorage } from "@react-native-async-storage/async-storage";
+import { BlurView } from "expo-blur";
 
 const fondo = "../resources/fondo_Login.jpg";
 const regresar = "../resources/botonRegresar.png";

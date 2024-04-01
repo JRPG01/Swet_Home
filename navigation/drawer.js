@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Text, View, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { DrawerContentScrollView, DrawerItemList, createDrawerNavigator } from '@react-navigation/drawer';
+import ProfilScreen from '../screens/profil-screen';
+import HomeScreen from '../screens/home-screen';
 import { HomeStack } from './stack';
-import PerfilScreen from '../screens/perfil - screen';
 
 const Drawer = createDrawerNavigator();
 
@@ -46,7 +47,6 @@ const Drawer = createDrawerNavigator();
 const arrendadorUriIcon = "../resources/ArrendadadorLevel-icon.png";
 const arrendadoUriIcon = "../resources/ArrendadoLevel-icon.png";
 
-
 function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView {...props}>
@@ -59,7 +59,7 @@ function CustomDrawerContent(props) {
       <DrawerItemList {...props} />
       <View style={{ width: "100%", height: "20%", alignItems: 'center', justifyContent: 'center' }}>
         <TouchableOpacity style={styles.botonLogout}>
-          <Text style={{color:"#fff", fontSize:20}}>Cerrar sesión</Text>
+          <Text style={{ color: "#fff", fontSize: 20 }}>Cerrar sesión</Text>
         </TouchableOpacity>
       </View>
     </DrawerContentScrollView>
@@ -71,20 +71,16 @@ export default function HomeDrawer() {
     <Drawer.Navigator
       drawerContent={props => <CustomDrawerContent {...props} />}
       screenOptions={{
-        drawerPosition: "right",
-        headerShown: false,
-        drawerStyle: {
+        drawerPosition: "right", headerShown: false, drawerStyle: {
           backgroundColor: "#4f6f32",
-          borderRadius:10,
+          borderRadius: 10,
           width: "20%"
-        },
-        drawerActiveTintColor: "#fff"
+        }, drawerActiveTintColor: "#fff"
       }}
     >
-      <Drawer.Screen name="HomeScreen" component={HomeStack} options={{ drawerLabel: () => <Text style={{ color: "#fff" }}>Inicio</Text> }} />
-      <Drawer.Screen name='PerfilScreen' component={PerfilScreen} options={{ drawerLabel: () => <Text style={{ color: "#fff" }}>Perfil</Text> }} />
-      <Drawer.Screen name='PublicacionesScreen' component={HomeStack} options={{ drawerLabel: () => <Text style={{ color: "#fff" }}>Publicaciones</Text> }} />
-      {/*<Drawer.Screen name='CerrarSesion' component={cerrarSesion} options={{ title: "Cerrar Sesión"}}/>*/}
+      <Drawer.Screen name='HomeScreen' component={HomeStack} options={{ drawerLabel: () => <Text style={{ color: "#fff" }}>Inicio</Text> }} />
+      <Drawer.Screen name='PerfilScreen' component={ProfilScreen} options={{ drawerLabel: () => <Text style={{ color: "#fff" }}>Perfil</Text> }} />
+      <Drawer.Screen name='PublicacionesScreen' component={HomeScreen} options={{ drawerLabel: () => <Text style={{ color: "#fff" }}>Publicaciones</Text> }} />
     </Drawer.Navigator>
   );
 }
