@@ -15,7 +15,7 @@ export default function ElementsList(){
                 data={EJEMPLO}
                 keyExtractor={item=> item.id}
                 renderItem={renderItem}
-                numColumns={5}
+                numColumns={4}
                 refreshControl = {
                     <RefreshControl 
                         refreshing = {false}
