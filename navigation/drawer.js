@@ -4,6 +4,7 @@ import { DrawerContentScrollView, DrawerItemList, createDrawerNavigator } from '
 import ProfilScreen from '../screens/profil-screen';
 import HomeScreen from '../screens/home-screen';
 import { HomeStack } from './stack';
+import { NavigationContainer } from '@react-navigation/native';
 
 const Drawer = createDrawerNavigator();
 
@@ -78,7 +79,7 @@ export default function HomeDrawer() {
         }, drawerActiveTintColor: "#fff"
       }}
     >
-      <Drawer.Screen name='HomeScreen' component={HomeStack} options={{ drawerLabel: () => <Text style={{ color: "#fff" }}>Inicio</Text> }} />
+      <Drawer.Screen name='Inicio' component={HomeStack} options={{ drawerLabel: () => <Text style={{ color: "#fff" }}>Inicio</Text> }}/>
       <Drawer.Screen name='PerfilScreen' component={ProfilScreen} options={{ drawerLabel: () => <Text style={{ color: "#fff" }}>Perfil</Text> }} />
       <Drawer.Screen name='PublicacionesScreen' component={HomeScreen} options={{ drawerLabel: () => <Text style={{ color: "#fff" }}>Publicaciones</Text> }} />
     </Drawer.Navigator>

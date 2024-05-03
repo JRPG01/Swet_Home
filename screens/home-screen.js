@@ -70,8 +70,8 @@ export default function HomeScreen() {
 
                 <ScrollView style={{ width: "100%", margin: 0, padding: 0, border: 0 }}>
                     <View style={style.busqueda}>
-                        <TextInput style={style.textoBusqueda} placeholder="¿Que deseas buscar?" />
-                        <TouchableOpacity>
+                        <TextInput style={style.textoBusqueda} placeholder="Busca tu lugar soñado" />
+                        <TouchableOpacity style={{ borderTopRightRadius: 10, borderBottomRightRadius: 10, shadowColor:"#000", shadowOpacity: 0.80, shadowOffset: {width: 0, height:0 }, shadowRadius: 5, elevation: 5}} >
                             <Image source={{ uri: imgBuscar }} style={style.botonBuscar} />
                         </TouchableOpacity>
                     </View>
@@ -150,7 +150,7 @@ const style = StyleSheet.create({
         alignItems: "center",
         top: 80,
         left: 0,
-        right: 0
+        right: 0,
     },
 
     elementos: {
@@ -198,13 +198,14 @@ const style = StyleSheet.create({
 
     textoBusqueda: {
         width: "50%",
-        height: 40,
+        height: 60,
         borderColor: "#fff",
-        borderRadius: 10,
-        padding: 10,
+        borderTopLeftRadius:10,
+        borderBottomLeftRadius:10,
+        padding: 30,
         marginVertical: 10,
-        backgroundColor: "#ffffff90",
-        fontSize: 16,
+        backgroundColor: "#ffffff",
+        fontSize: 20,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -217,19 +218,10 @@ const style = StyleSheet.create({
 
     botonBuscar: {
         backgroundColor: "#000",
-        marginHorizontal: 5,
-        marginVertical: 10,
-        width: 40,
-        height: 40,
-        resizeMode: "cover",
-        borderRadius: 10,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 0,
-        },
-        shadowOpacity: 0.80,
-        shadowRadius: 5,
-        elevation: 5,
+        width: 120,
+        height: 60,
+        resizeMode: "center",
+        borderTopRightRadius: 10,
+        borderBottomRightRadius: 10,
     }
 });

@@ -7,8 +7,8 @@ import HomeDrawer from './navigation/drawer';
 export default function App() {
   return (
     <NavigationContainer>
-      {/*<HomeStack/>*/}
       {<HomeDrawer/>}
+      {/*<HomeStack/>*/}
     </NavigationContainer>
   );
 }

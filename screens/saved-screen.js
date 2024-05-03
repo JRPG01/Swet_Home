@@ -11,7 +11,7 @@ const imgX = "../resources/x-icon.png";
 const imgYoutube = "../resources/youtube-icon.png";
 const imgProfile = "../resources/profile-icon.png";
 
-export default function savedScreen() {
+export default function SavedScreen() {
     const navigation = useNavigation();
 
     return (
