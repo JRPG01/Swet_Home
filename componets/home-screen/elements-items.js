@@ -1,9 +1,11 @@
 import React from "react";
 import { TouchableOpacity, Text, Image, StyleSheet } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 export default function ElementsItems({id, image ,title, price ,description}){
+    const navigation = useNavigation();
     return (
-        <TouchableOpacity style={styles.card} onPress={()=>{}}>
+        <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('Publication')}>
             <Image source={{uri: image}} style={{width: "30%", height:"30%", resizeMode: "center"}}/>
             <Text>{title}</Text>
             <Text>{price}</Text>

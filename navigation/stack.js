@@ -5,6 +5,7 @@ import LoginScreen from '../screens/login-screen';
 import RegisterScreen from '../screens/register-screen';
 import SavedScreen from '../screens/saved-screen';
 import HomeDrawer from './drawer';
+import PublicationScreen from '../screens/publication-screen';
 
 const Stack = createStackNavigator();
 
@@ -15,6 +16,7 @@ export const HomeStack = () => {
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Register" component={RegisterScreen} />
       <Stack.Screen name='Saved' component={SavedScreen} />
+      <Stack.Screen name='Publication' component={PublicationScreen}/>
     </Stack.Navigator>
   );
 }

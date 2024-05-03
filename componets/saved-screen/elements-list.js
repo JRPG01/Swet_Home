@@ -1,6 +1,6 @@
 import React from "react";
 import { View, FlatList, RefreshControl } from "react-native";
-import { EJEMPLO } from "../../data/datos-guardados-ejemplos";
+import { EJEMPLO } from "../../data/saved-screen/datos-guardados-ejemplos";
 import ElementsItems from "./elements-items";
 
 export default function ElementsList(){
