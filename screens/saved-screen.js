@@ -118,7 +118,7 @@ const style = StyleSheet.create({
         left: 0,
         right: 0,
     },
-
+    
     pie: {
         width: "100%",
         height: 50,

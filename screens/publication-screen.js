@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput, ScrollView } from "react-native";
 import { BlurView } from "expo-blur";
 
 const imglogo = "../resources/logo-SweetHome.png";
@@ -9,8 +9,8 @@ const imgFacebook = "../resources/facebook-icon.png";
 const imgX = "../resources/x-icon.png";
 const imgYoutube = "../resources/youtube-icon.png";
 const imgProfile = "../resources/profile-icon.png";
-const imgSaved = "../resources/saved-icon.png";
 const imgUser = "../resources/profile-icon-black.png";
+const imgSaved = "../resources/saved-icon.png";
 
 export default function ProfileScreen() {
     const navigation = useNavigation();
@@ -36,47 +36,49 @@ export default function ProfileScreen() {
                     </View>
                 </View>
 
-                <ScrollView style={{ width: "100%", margin: 0, padding: 0, border: 0 }}>
-                    <View style={style.elementos}>
-                        {/* Titulo */}
-                        <View style={{ alignItems: "flex-start", width: "100%" }}>
-                            <Text style={{ fontSize: 50, color: "#000" }}>Titulo de la publicación</Text>
-                        </View>
+                <ScrollView style={{ width: "100%", margin: 0, padding: 30, border: 0 }}>
+                    <View style={{ width: "100%", justifyContent: "center", alignItems: "center" }}>
+                        <View style={style.elementos}>
+                            {/* Titulo */}
+                            <View style={{ alignItems: "flex-start", width: "100%" }}>
+                                <Text style={{ fontSize: 50, color: "#000" }}>Titulo de la publicación</Text>
+                            </View>
 
-                        {/*Carusel de imagenes*/}
-                        <View style={{ width: "100%", height: 500, backgroundColor: "#000", borderRadius: 10, marginVertical: 20 }}>
+                            {/*Carusel de imagenes*/}
+                            <View style={{ width: "100%", height: 500, backgroundColor: "#000", borderRadius: 10, marginVertical: 20 }}>
 
-                        </View>
+                            </View>
 
-                        {/*La demas información*/}
-                        <View style={{ flexDirection: "row", width: "100%" }}>
-                            <View style={{ width: "50%", marginVertical: 1 }}>
-                                <TouchableOpacity style={{ height: 100, backgroundColor: "#fff", borderRadius: 10, justifyContent: "flex-start", alignItems: "center", flexDirection: "row", padding: 20 }}>
-                                    <View>
-                                        <Image source={{ uri: imgUser }} style={{ width: 50, height: 50, borderRadius: "100%" }} />
-                                    </View>
-                                    <View style={{width: "30%"}}>
-                                        <Text style={{ fontSize: 30 }}> Jhon Doe </Text>
-                                    </View>
-                                    <View style={{alignItems: "flex-end", justifyContent: "center", width: "60%"}}>
-                                        <View style={{justifyContent: "center", alignItems: "center"}}>
-                                            <Text style={{ fontSize: 15 }}> Califiación: 5 estrellas</Text>
-                                            <Text style={{ fontSize: 15 }}> * * * *</Text>
+                            {/*La demas información*/}
+                            <View style={{ flexDirection: "row", width: "100%" }}>
+                                <View style={{ width: "50%", marginVertical: 1 }}>
+                                    <TouchableOpacity style={{ height: 100, backgroundColor: "#fff", borderRadius: 10, justifyContent: "flex-start", alignItems: "center", flexDirection: "row", padding: 20 }}>
+                                        <View>
+                                            <Image source={{ uri: imgUser }} style={{ width: 50, height: 50, borderRadius: "100%" }} />
                                         </View>
-                                        <View style={{justifyContent: "center", alignItems: "center"}}>
-                                            <Text style={{ fontSize: 15 }}> 99 Evaluaciones </Text>
+                                        <View style={{ width: "30%" }}>
+                                            <Text style={{ fontSize: 30 }}> Jhon Doe </Text>
                                         </View>
+                                        <View style={{ alignItems: "flex-end", justifyContent: "center", width: "60%" }}>
+                                            <View style={{ justifyContent: "center", alignItems: "center" }}>
+                                                <Text style={{ fontSize: 15 }}> Califiación: 5 estrellas</Text>
+                                                <Text style={{ fontSize: 15 }}> * * * *</Text>
+                                            </View>
+                                            <View style={{ justifyContent: "center", alignItems: "center" }}>
+                                                <Text style={{ fontSize: 15 }}> 99 Evaluaciones </Text>
+                                            </View>
+                                        </View>
+                                    </TouchableOpacity>
+                                    <View style={{ height: 500, backgroundColor: "#fff", borderRadius: 10, justifyContent: "flex-start", alignItems: "center", flexDirection: "row", padding: 20, marginTop: 10 }}>
+
                                     </View>
-                                </TouchableOpacity>
-                                <View style={{ height: 500, backgroundColor: "#fff", borderRadius: 10, justifyContent: "flex-start", alignItems: "center", flexDirection: "row", padding: 20, marginTop: 10 }}>
+                                </View>
+
+                                <View style={{ width: "50%", marginVertical: 1 }}>
 
                                 </View>
-                            </View>
-
-                            <View style={{ width: "50%", marginVertical: 1 }}>
 
                             </View>
-
                         </View>
                     </View>
                 </ScrollView>
@@ -171,12 +173,13 @@ const style = StyleSheet.create({
     },
 
     elementos: {
-        margin: 30,
+        //margin: 30,
         padding: 30,
+        width: "100%",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        position: "relative",
+        position: "absolute",
         backgroundColor: "rgba(249, 244, 217, 0.8)",
         borderRadius: 10,
         top: 0,
