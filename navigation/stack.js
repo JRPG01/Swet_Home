@@ -11,11 +11,11 @@ const Stack = createStackNavigator();
 export const HomeStack = () => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName='Home'>
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Login" component={LoginScreen} />
-      <Stack.Screen name="Register" component={RegisterScreen} />
-      <Stack.Screen name='Saved' component={SavedScreen} />
-      <Stack.Screen name='Publication' component={PublicationScreen} />
+      <Stack.Screen name="Home" component={HomeScreen} options={{stackLabel: ()=> <Text> Sweet Home </Text>}} />
+      <Stack.Screen name="Login" component={LoginScreen} options={{stackLabel: ()=> <Text> Inicio de sesion </Text>}} />
+      <Stack.Screen name="Register" component={RegisterScreen} options={{stackLabel: ()=> <Text> Registrate </Text>}} />
+      <Stack.Screen name='Saved' component={SavedScreen} options={{stackLabel: ()=> <Text> Guardados </Text>}} />
+      <Stack.Screen name='Publication' component={PublicationScreen} options={{stackLabel: ()=> <Text> Publicacion </Text>}} />
     </Stack.Navigator>
   );
 }

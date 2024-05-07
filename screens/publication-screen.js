@@ -11,8 +11,9 @@ const imgYoutube = "../resources/youtube-icon.png";
 const imgProfile = "../resources/profile-icon.png";
 const imgUser = "../resources/profile-icon-black.png";
 const imgSaved = "../resources/saved-icon.png";
+const regresar = "../resources/botonRegresar.png";
 
-export default function ProfileScreen() {
+export default function PublicationScreen() {
     const navigation = useNavigation();
 
     return (
@@ -40,19 +41,24 @@ export default function ProfileScreen() {
                     <View style={{ width: "100%", justifyContent: "center", alignItems: "center" }}>
                         <View style={style.elementos}>
                             {/* Titulo */}
-                            <View style={{ alignItems: "flex-start", width: "100%" }}>
-                                <Text style={{ fontSize: 50, color: "#000" }}>Titulo de la publicación</Text>
+                            <View style={{ alignItems: "center", justifyContent: "center", width: "100%", flexDirection: "row", paddingHorizontal: 25 }}>
+                                <TouchableOpacity onPress={() => navigation.navigate('Home')} style={{marginRight: 10}} >
+                                    <Image source={{ uri: regresar }} style={style.regresar} />
+                                </TouchableOpacity>
+                                <View style={{backgroundColor: "#fff", padding:20, borderRadius: 10, width: "100%", shadowColor: "#000", shadowOffset: { width: 0, height: 0, }, shadowOpacity: 0.30, shadowRadius: 5}}>
+                                    <Text style={{ marginLeft: 10, fontSize: 50, color: "#000" }}>Titulo de la publicación</Text>
+                                </View>
                             </View>
 
                             {/*Carusel de imagenes*/}
-                            <View style={{ width: "100%", height: 500, backgroundColor: "#000", borderRadius: 10, marginVertical: 20 }}>
+                            <View style={{ width: "100%", height: 500, backgroundColor: "#000", borderRadius: 10, marginVertical: 20, shadowColor: "#000", shadowOffset: { width: 0, height: 0, }, shadowOpacity: 0.30, shadowRadius: 5 }}>
 
                             </View>
 
                             {/*La demas información*/}
                             <View style={{ flexDirection: "row", width: "100%" }}>
-                                <View style={{ width: "50%", marginVertical: 1 }}>
-                                    <TouchableOpacity style={{ height: 100, backgroundColor: "#fff", borderRadius: 10, justifyContent: "flex-start", alignItems: "center", flexDirection: "row", padding: 20 }}>
+                                <View style={{ width: "50%", marginVertical: 1, marginHorizontal: 5 }}>
+                                    <TouchableOpacity style={{ height: 100, backgroundColor: "#fff", borderRadius: 10, justifyContent: "flex-start", alignItems: "center", flexDirection: "row", padding: 20, shadowColor: "#000", shadowOffset: { width: 0, height: 0, }, shadowOpacity: 0.30, shadowRadius: 5 }}>
                                         <View>
                                             <Image source={{ uri: imgUser }} style={{ width: 50, height: 50, borderRadius: "100%" }} />
                                         </View>
@@ -61,22 +67,94 @@ export default function ProfileScreen() {
                                         </View>
                                         <View style={{ alignItems: "flex-end", justifyContent: "center", width: "60%" }}>
                                             <View style={{ justifyContent: "center", alignItems: "center" }}>
-                                                <Text style={{ fontSize: 15 }}> Califiación: 5 estrellas</Text>
-                                                <Text style={{ fontSize: 15 }}> * * * *</Text>
-                                            </View>
-                                            <View style={{ justifyContent: "center", alignItems: "center" }}>
+                                                <Text style={{ fontSize: 15 }}> 5 estrellas </Text>
+                                                <Text style={{ fontSize: 15 }}> * * * * * </Text>
                                                 <Text style={{ fontSize: 15 }}> 99 Evaluaciones </Text>
                                             </View>
                                         </View>
                                     </TouchableOpacity>
-                                    <View style={{ height: 500, backgroundColor: "#fff", borderRadius: 10, justifyContent: "flex-start", alignItems: "center", flexDirection: "row", padding: 20, marginTop: 10 }}>
+                                    <View style={{ justifyContent: "space-between", alignItems: "center", height: 300, backgroundColor: "#fff", borderRadius: 10, padding: 20, marginTop: 10, shadowColor: "#000", shadowOffset: { width: 0, height: 0, }, shadowOpacity: 0.30, shadowRadius: 5 }}>
+                                        <Text style={{ fontSize: 20 }}> Detalles sobre la propiedad </Text>
+                                        <View style={{ width: "100%" }}>
+                                            <Text style={{ marginTop: 10 }}>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                Pellentesque lacinia placerat nisi ut ornare.
+                                                Suspendisse est erat, tempus eget lectus sed, iaculis tempor turpis.
+                                                Mauris elit purus, volutpat ornare condimentum ac, tempus sit amet est.
+                                            </Text>
+                                            <Text style={{ marginTop: 10 }}>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                Pellentesque lacinia placerat nisi ut ornare.
+                                                Suspendisse est erat, tempus eget lectus sed, iaculis tempor turpis.
+                                                Mauris elit purus, volutpat ornare condimentum ac, tempus sit amet est.
+                                            </Text>
+                                            <Text style={{ marginTop: 10 }}>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                Pellentesque lacinia placerat nisi ut ornare.
+                                                Suspendisse est erat, tempus eget lectus sed, iaculis tempor turpis.
+                                                Mauris elit purus, volutpat ornare condimentum ac, tempus sit amet est.
+                                            </Text>
+                                        </View>
+                                        <TouchableOpacity style={{ justifyContent: "center", alignItems: "center", backgroundColor: "#fff", borderRadius: 10, padding: 20, shadowColor: "#000", shadowOffset: { width: 0, height: 0, }, shadowOpacity: 0.30, shadowRadius: 5 }}>
+                                            <Text> Mostrar más detalles </Text>
+                                        </TouchableOpacity>
+                                    </View>
+                                    <View style={{ justifyContent: "space-between", alignItems: "center", backgroundColor: "#fff", borderRadius: 10, padding: 20, marginTop: 10, shadowColor: "#000", shadowOffset: { width: 0, height: 0, }, shadowOpacity: 0.30, shadowRadius: 5 }}>
+                                        <View>
+                                            <Text style={{ fontSize: 20 }}> ### de reseñas </Text>
+                                        </View>
+                                        <View style={{ paddingTop: 10 }}>
+                                            <View style={{ flexDirection: "row", fontSize: 15 }}>
+                                                <Text>Juan Perez </Text>
+                                                <Text> - </Text>
+                                                <Text> 3.5/5 Estrellas </Text>
+                                            </View>
+                                            <Text>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                Pellentesque lacinia placerat nisi ut ornare.
+                                                Suspendisse est erat, tempus eget lectus sed, iaculis tempor turpis.
+                                                Mauris elit purus, volutpat ornare condimentum ac, tempus sit amet est.
+                                            </Text>
+                                        </View>
+                                        <View style={{ paddingTop: 10 }}>
+                                            <View style={{ flexDirection: "row", fontSize: 15 }}>
+                                                <Text>Juan Perez </Text>
+                                                <Text> - </Text>
+                                                <Text> 3.5/5 Estrellas </Text>
+                                            </View>
+                                            <Text>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                Pellentesque lacinia placerat nisi ut ornare.
+                                                Suspendisse est erat, tempus eget lectus sed, iaculis tempor turpis.
+                                                Mauris elit purus, volutpat ornare condimentum ac, tempus sit amet est.
+                                            </Text>
+                                        </View>
+                                        <View style={{ paddingTop: 10 }}>
+                                            <View style={{ flexDirection: "row", fontSize: 15 }}>
+                                                <Text>Juan Perez </Text>
+                                                <Text> - </Text>
+                                                <Text> 3.5/5 Estrellas </Text>
+                                            </View>
+                                            <Text>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                Pellentesque lacinia placerat nisi ut ornare.
+                                                Suspendisse est erat, tempus eget lectus sed, iaculis tempor turpis.
+                                                Mauris elit purus, volutpat ornare condimentum ac, tempus sit amet est.
+                                            </Text>
+                                        </View>
+                                        <TouchableOpacity style={{ justifyContent: "center", alignItems: "center", backgroundColor: "#fff", borderRadius: 10, marginTop: 20, padding: 20, shadowColor: "#000", shadowOffset: { width: 0, height: 0, }, shadowOpacity: 0.30, shadowRadius: 5 }}>
+                                            <Text> Mostrar más </Text>
+                                        </TouchableOpacity>
+                                    </View>
+                                </View>
+                                <View style={{ height: "auto", width: "49%", marginVertical: 1, marginHorizontal: 5 }}>
+                                    <View style={{ height: "100%", backgroundColor: "#fff", borderRadius: 10, justifyContent: "flex-start", alignItems: "center", flexDirection: "row", padding: 20, shadowColor: "#000", shadowOffset: { width: 0, height: 0, }, shadowOpacity: 0.30, shadowRadius: 5 }}>
 
                                     </View>
                                 </View>
-
-                                <View style={{ width: "50%", marginVertical: 1 }}>
-
-                                </View>
+                            </View>
+                            {/* Ultima parte para los comentarios */}
+                            <View style={{width: "100%", height: 500, backgroundColor: "#fff", borderRadius:10, marginTop: 10}}>
 
                             </View>
                         </View>
@@ -101,6 +179,11 @@ export default function ProfileScreen() {
 }
 
 const style = StyleSheet.create({
+    regresar: {
+        width: 50,
+        height: 50
+    },
+
     cards: {
         alignItems: "center",
         justifyContent: "center",
