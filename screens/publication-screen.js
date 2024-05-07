@@ -37,15 +37,15 @@ export default function PublicationScreen() {
                     </View>
                 </View>
 
-                <ScrollView style={{ width: "100%", margin: 0, padding: 30, border: 0 }}>
+                <ScrollView style={{ width: "100%", margin: 0, paddingHorizontal: 20, paddingVertical: 0, border: 0 }}>
                     <View style={{ width: "100%", justifyContent: "center", alignItems: "center" }}>
                         <View style={style.elementos}>
                             {/* Titulo */}
                             <View style={{ alignItems: "center", justifyContent: "center", width: "100%", flexDirection: "row", paddingHorizontal: 25 }}>
-                                <TouchableOpacity onPress={() => navigation.navigate('Home')} style={{marginRight: 10}} >
+                                <TouchableOpacity onPress={() => navigation.navigate('Home')} style={{ marginRight: 10 }} >
                                     <Image source={{ uri: regresar }} style={style.regresar} />
                                 </TouchableOpacity>
-                                <View style={{backgroundColor: "#fff", padding:20, borderRadius: 10, width: "100%", shadowColor: "#000", shadowOffset: { width: 0, height: 0, }, shadowOpacity: 0.30, shadowRadius: 5}}>
+                                <View style={{ backgroundColor: "#fff", padding: 20, borderRadius: 10, width: "100%", shadowColor: "#000", shadowOffset: { width: 0, height: 0, }, shadowOpacity: 0.30, shadowRadius: 5 }}>
                                     <Text style={{ marginLeft: 10, fontSize: 50, color: "#000" }}>Titulo de la publicación</Text>
                                 </View>
                             </View>
@@ -147,15 +147,107 @@ export default function PublicationScreen() {
                                         </TouchableOpacity>
                                     </View>
                                 </View>
-                                <View style={{ height: "auto", width: "49%", marginVertical: 1, marginHorizontal: 5 }}>
-                                    <View style={{ height: "100%", backgroundColor: "#fff", borderRadius: 10, justifyContent: "flex-start", alignItems: "center", flexDirection: "row", padding: 20, shadowColor: "#000", shadowOffset: { width: 0, height: 0, }, shadowOpacity: 0.30, shadowRadius: 5 }}>
+                                <View style={{ justifyContent: "space-between", height: "auto", width: "49%", marginVertical: 1, marginHorizontal: 5 }}>
+                                    <View style={{ height: "100%", backgroundColor: "#fff", borderRadius: 10, justifyContent: "center", alignItems: "flex-start", padding: 20, shadowColor: "#000", shadowOffset: { width: 0, height: 0, }, shadowOpacity: 0.30, shadowRadius: 5 }}>
+                                        <Text style={{ fontSize: 25, marginVertical: 20 }}>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                            Pellentesque lacinia placerat nisi ut ornare.
+                                        </Text>
+                                        <Text style={{ fontSize: 20, marginVertical: 20 }}>$ 8000.00 MXN</Text>
+                                        <Text style={{ fontSize: 20, marginVertical: 20 }}>Zapata #40, Plan de Ayala, Uriangato, Guanajuato, Mexico</Text>
+                                        {/* Parte del calendario */}
+                                        <View style={{ width: "100%", height: 400, backgroundColor: "#000", borderRadius: 10, }}>
 
+                                        </View>
+                                        <View style={{ width: "100%", justifyContent: "center", alignItems: "center", paddingTop: 20 }}>
+                                            <TouchableOpacity style={{ justifyContent: "center", alignItems: "center", backgroundColor: "#fff", borderRadius: 10, padding: 20, shadowColor: "#000", shadowOffset: { width: 0, height: 0, }, shadowOpacity: 0.30, shadowRadius: 5 }}>
+                                                <Text> Concretar una cita </Text>
+                                            </TouchableOpacity>
+                                        </View>
                                     </View>
                                 </View>
                             </View>
                             {/* Ultima parte para los comentarios */}
-                            <View style={{width: "100%", height: 500, backgroundColor: "#fff", borderRadius:10, marginTop: 10}}>
-
+                            <View style={{ width: "100%", backgroundColor: "#fff", borderRadius: 10, marginTop: 10, padding: 20, justifyContent: "center", alignItems: "center" }}>
+                                <Text style={{ fontSize: 20 }}>### de Comentarios</Text>
+                                <View style={{ paddingTop: 10 }}>
+                                    <View style={{ flexDirection: "row", fontSize: 15 }}>
+                                        <Text>Juan Perez </Text>
+                                        <Text> - </Text>
+                                        <Text> 3.5/5 Estrellas </Text>
+                                    </View>
+                                    <Text>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Pellentesque lacinia placerat nisi ut ornare.
+                                        Suspendisse est erat, tempus eget lectus sed, iaculis tempor turpis.
+                                        Mauris elit purus, volutpat ornare condimentum ac, tempus sit amet est.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Pellentesque lacinia placerat nisi ut ornare.
+                                        Suspendisse est erat, tempus eget lectus sed, iaculis tempor turpis.
+                                        Mauris elit purus, volutpat ornare condimentum ac, tempus sit amet est.
+                                    </Text>
+                                </View>
+                                <View style={{ paddingTop: 10 }}>
+                                    <View style={{ flexDirection: "row", fontSize: 15 }}>
+                                        <Text>Juan Perez </Text>
+                                        <Text> - </Text>
+                                        <Text> 3.5/5 Estrellas </Text>
+                                    </View>
+                                    <Text>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Pellentesque lacinia placerat nisi ut ornare.
+                                        Suspendisse est erat, tempus eget lectus sed, iaculis tempor turpis.
+                                        Mauris elit purus, volutpat ornare condimentum ac, tempus sit amet est.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Pellentesque lacinia placerat nisi ut ornare.
+                                        Suspendisse est erat, tempus eget lectus sed, iaculis tempor turpis.
+                                        Mauris elit purus, volutpat ornare condimentum ac, tempus sit amet est.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Pellentesque lacinia placerat nisi ut ornare.
+                                        Suspendisse est erat, tempus eget lectus sed, iaculis tempor turpis.
+                                        Mauris elit purus, volutpat ornare condimentum ac, tempus sit amet est.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Pellentesque lacinia placerat nisi ut ornare.
+                                        Suspendisse est erat, tempus eget lectus sed, iaculis tempor turpis.
+                                        Mauris elit purus, volutpat ornare condimentum ac, tempus sit amet est.
+                                    </Text>
+                                </View>
+                                <View style={{ paddingTop: 10 }}>
+                                    <View style={{ flexDirection: "row", fontSize: 15 }}>
+                                        <Text>Juan Perez </Text>
+                                        <Text> - </Text>
+                                        <Text> 3.5/5 Estrellas </Text>
+                                    </View>
+                                    <Text>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Pellentesque lacinia placerat nisi ut ornare.
+                                        Suspendisse est erat, tempus eget lectus sed, iaculis tempor turpis.
+                                        Mauris elit purus, volutpat ornare condimentum ac, tempus sit amet est.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Pellentesque lacinia placerat nisi ut ornare.
+                                        Suspendisse est erat, tempus eget lectus sed, iaculis tempor turpis.
+                                        Mauris elit purus, volutpat ornare condimentum ac, tempus sit amet est.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Pellentesque lacinia placerat nisi ut ornare.
+                                        Suspendisse est erat, tempus eget lectus sed, iaculis tempor turpis.
+                                        Mauris elit purus, volutpat ornare condimentum ac, tempus sit amet est.
+                                    </Text>
+                                </View>
+                                <View style={{ paddingTop: 10 }}>
+                                    <View style={{ flexDirection: "row", fontSize: 15 }}>
+                                        <Text>Juan Perez </Text>
+                                        <Text> - </Text>
+                                        <Text> 3.5/5 Estrellas </Text>
+                                    </View>
+                                    <Text>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Pellentesque lacinia placerat nisi ut ornare.
+                                        Suspendisse est erat, tempus eget lectus sed, iaculis tempor turpis.
+                                        Mauris elit purus, volutpat ornare condimentum ac, tempus sit amet est.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Pellentesque lacinia placerat nisi ut ornare.
+                                    </Text>
+                                </View>
                             </View>
                         </View>
                     </View>
