@@ -41,11 +41,11 @@ export default function PublicationScreen() {
                     <View style={{ width: "100%", justifyContent: "center", alignItems: "center" }}>
                         <View style={style.elementos}>
                             {/* Titulo */}
-                            <View style={{ alignItems: "center", justifyContent: "center", width: "100%", flexDirection: "row", paddingHorizontal: 25 }}>
-                                <TouchableOpacity onPress={() => navigation.navigate('Home')} style={{ marginRight: 10 }} >
+                            <View style={{ alignItems: "center", height: "auto", justifyContent: "center", width: "100%", flexDirection: "row", paddingHorizontal: 25 }}>
+                                <TouchableOpacity onPress={() => navigation.navigate('Home')} style={{ paddingVertical: 29, height: "100%",borderTopLeftRadius:10, borderBottomLeftRadius: 10, backgroundColor: "#000", shadowOffset: { width: 0, height: 0, }, shadowOpacity: 0.30, shadowRadius: 5}} >
                                     <Image source={{ uri: regresar }} style={style.regresar} />
                                 </TouchableOpacity>
-                                <View style={{ backgroundColor: "#fff", padding: 20, borderRadius: 10, width: "100%", shadowColor: "#000", shadowOffset: { width: 0, height: 0, }, shadowOpacity: 0.30, shadowRadius: 5 }}>
+                                <View style={{ width: "100%", backgroundColor: "#fff", padding: 20, borderTopRightRadius: 10, borderBottomRightRadius: 10, shadowColor: "#000", shadowOffset: { width: 0, height: 0, }, shadowOpacity: 0.30, shadowRadius: 5 }}>
                                     <Text style={{ marginLeft: 10, fontSize: 50, color: "#000" }}>Titulo de la publicación</Text>
                                 </View>
                             </View>
@@ -95,8 +95,8 @@ export default function PublicationScreen() {
                                                 Mauris elit purus, volutpat ornare condimentum ac, tempus sit amet est.
                                             </Text>
                                         </View>
-                                        <TouchableOpacity style={{ justifyContent: "center", alignItems: "center", backgroundColor: "#fff", borderRadius: 10, padding: 20, shadowColor: "#000", shadowOffset: { width: 0, height: 0, }, shadowOpacity: 0.30, shadowRadius: 5 }}>
-                                            <Text> Mostrar más detalles </Text>
+                                        <TouchableOpacity style={{ width: "100%", justifyContent: "center", alignItems: "center", backgroundColor: "#4f6f32", borderRadius: 10, padding: 20, shadowColor: "#000", shadowOffset: { width: 0, height: 0, }, shadowOpacity: 0.30, shadowRadius: 5 }}>
+                                            <Text style={{color: "#fff", fontSize: 20}}> Mostrar más detalles </Text>
                                         </TouchableOpacity>
                                     </View>
                                     <View style={{ justifyContent: "space-between", alignItems: "center", backgroundColor: "#fff", borderRadius: 10, padding: 20, marginTop: 10, shadowColor: "#000", shadowOffset: { width: 0, height: 0, }, shadowOpacity: 0.30, shadowRadius: 5 }}>
@@ -142,8 +142,8 @@ export default function PublicationScreen() {
                                                 Mauris elit purus, volutpat ornare condimentum ac, tempus sit amet est.
                                             </Text>
                                         </View>
-                                        <TouchableOpacity style={{ justifyContent: "center", alignItems: "center", backgroundColor: "#fff", borderRadius: 10, marginTop: 20, padding: 20, shadowColor: "#000", shadowOffset: { width: 0, height: 0, }, shadowOpacity: 0.30, shadowRadius: 5 }}>
-                                            <Text> Mostrar más </Text>
+                                        <TouchableOpacity style={{ width: "100%", justifyContent: "center", alignItems: "center", backgroundColor: "#4f6f32", borderRadius: 10, marginTop: 20, padding: 20, shadowColor: "#000", shadowOffset: { width: 0, height: 0, }, shadowOpacity: 0.30, shadowRadius: 5 }}>
+                                            <Text style={{color: "#fff", fontSize: 20}}> Mostrar más </Text>
                                         </TouchableOpacity>
                                     </View>
                                 </View>
@@ -160,8 +160,8 @@ export default function PublicationScreen() {
 
                                         </View>
                                         <View style={{ width: "100%", justifyContent: "center", alignItems: "center", paddingTop: 20 }}>
-                                            <TouchableOpacity style={{ justifyContent: "center", alignItems: "center", backgroundColor: "#fff", borderRadius: 10, padding: 20, shadowColor: "#000", shadowOffset: { width: 0, height: 0, }, shadowOpacity: 0.30, shadowRadius: 5 }}>
-                                                <Text> Concretar una cita </Text>
+                                            <TouchableOpacity style={{ width: "100%", justifyContent: "center", alignItems: "center", backgroundColor: "rgb(183, 0, 0)", borderRadius: 10, padding: 20, shadowColor: "#000", shadowOffset: { width: 0, height: 0, }, shadowOpacity: 0.30, shadowRadius: 5 }}>
+                                                <Text style={{color:"#fff", fontSize: 20}}> Concretar una cita </Text>
                                             </TouchableOpacity>
                                         </View>
                                     </View>
@@ -248,6 +248,12 @@ export default function PublicationScreen() {
                                         Pellentesque lacinia placerat nisi ut ornare.
                                     </Text>
                                 </View>
+                                <View style={{width: "100%", flexDirection: "row", paddingVertical: 20}}>
+                                    <TextInput style={{width: "100%", padding: 10, fontSize:15, backgroundColor: "#fff", borderTopLeftRadius: 10, borderBottomLeftRadius:10, shadowColor: "#000", shadowOffset: { width: 0, height: 0, }, shadowOpacity: 0.30, shadowRadius: 5 }} placeholder="Escribe un comentario" />
+                                    <TouchableOpacity style={{padding: 10, backgroundColor: "#4f6f32", borderTopRightRadius: 10, borderBottomRightRadius: 10, shadowColor: "#000", shadowOffset: { width: 0, height: 0, }, shadowOpacity: 0.30, shadowRadius: 5 }}>
+                                        <Text style={{color: "#fff"}}>Enviar</Text>
+                                    </TouchableOpacity>
+                                </View>
                             </View>
                         </View>
                     </View>
@@ -273,7 +279,7 @@ export default function PublicationScreen() {
 const style = StyleSheet.create({
     regresar: {
         width: 50,
-        height: 50
+        height: 50,
     },
 
     cards: {
