@@ -153,7 +153,7 @@ export default function PublicationScreen() {
                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                             Pellentesque lacinia placerat nisi ut ornare.
                                         </Text>
-                                        <Text style={{ fontSize: 20, marginVertical: 20 }}>$ 8000.00 MXN</Text>
+                                        <Text style={{ fontSize: 20, marginVertical: 20 }}>$ 800.00 MXN</Text>
                                         <Text style={{ fontSize: 20, marginVertical: 20 }}>Zapata #40, Plan de Ayala, Uriangato, Guanajuato, Mexico</Text>
                                         {/* Parte del calendario */}
                                         <View style={{ width: "100%", height: 400, backgroundColor: "#000", borderRadius: 10, }}>

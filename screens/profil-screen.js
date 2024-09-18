@@ -50,10 +50,10 @@ export default function ProfileScreen() {
                                 <Text style={{ fontSize: 40 }}>Editar Perfil</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={style.cards}>
-                                <Text style={{ fontSize: 40 }}>Wea1</Text>
+                                <Text style={{ fontSize: 40 }}>Ejemplo 1</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={style.cards}>
-                                <Text style={{ fontSize: 40 }}>Wea2</Text>
+                                <Text style={{ fontSize: 40 }}>Ejemplo 2</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
